@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎴 Full Arcana Companion</title>
+    <link rel="stylesheet" href="companion.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎴 Full Arcana Companion</h1>
+        <form class="player-form">
+            <div class="stat-group">
+                <label for="class-select">Class:</label>
+                <select id="class-select">
+                    <option value="Warrior">⚔️ Warrior</option>
+                    <option value="Mage">🪄 Mage</option>
+                    <option value="Rogue">🗡️ Rogue</option>
+                    <option value="Healer">❤️‍🩹 Healer</option>
+                    <option value="Hunter">🏹 Hunter</option>
+                    <option value="Paladin">🛡️ Paladin</option>
+                    <option value="Warlock">☠️ Warlock</option>
+                    <option value="Bard">🎵 Bard</option>
+                    <option value="Druid">🌳 Druid</option>
+                    <option value="Alchemist">⚗️ Alchemist</option>
+                    <option value="Shaman">🌩️ Shaman</option>
+                    <option value="Necromancer">💀 Necromancer</option>
+                    <option value="Barbarian">🔥 Barbarian</option>
+                    <option value="Duelist">🔪 Duelist</option>
+                    <option value="Artificer">⚙️ Artificer</option>
+                    <option value="Wizard">✨ Wizard</option>
+                </select>
+                <button type="button" id="lock-class-toggle">Lock</button>
+            </div>
+            
+            <div class="stat-group">
+                <label for="defense">Defense:</label>
+                <input type="number" id="defense" value="0" min="0">
+            </div>
+            <div class="stat-group">
+                <label for="block">Block:</label>
+                <input type="number" id="block" value="0" min="0">
+            </div>
+
+            <div class="stat-group">
+                <label for="hp">HP:</label>
+                <input type="number" id="hp" value="100" min="0">
+            </div>
+
+            <div class="stat-group special-counter-group" style="display: none;">
+                <label for="special-counter" id="special-counter-label"></label>
+                <input type="number" id="special-counter" value="0" min="0" style="display: none;">
+                <div id="season-counter" style="display: none;">Spring</div>
+            </div>
+
+            <div class="stat-group">
+                <label for="damage-received">Damage Received:</label>
+                <input type="number" id="damage-received" min="0">
+            </div>
+
+            <button type="button" id="calculate-hp">Calculate HP</button>
+            <button type="button" id="roll-initiative">Roll Initiative</button>
+            <p id="initiative-result"></p>
+        </form>
+    </div>
+    <script src="companion.js"></script>
+</body>
+</html>

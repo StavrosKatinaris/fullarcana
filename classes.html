@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="classes.css">
+    <title>🎴 Full Arcana - Classes</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎴 Full Arcana Classes</h1>
+        </header>
+        <main>
+            <div class="scroll-area">
+                <ul class="class-list">
+                    <li class="class-item" data-class="Warrior">⚔️ Warrior</li>
+                    <li class="class-item" data-class="Mage">🪄 Mage</li>
+                    <li class="class-item" data-class="Rogue">🗡️ Rogue</li>
+                    <li class="class-item" data-class="Healer">❤️‍🩹 Healer</li>
+                    <li class="class-item" data-class="Hunter">🏹 Hunter</li>
+                    <li class="class-item" data-class="Paladin">🛡️ Paladin</li>
+                    <li class="class-item" data-class="Warlock">☠️ Warlock</li>
+                    <li class="class-item" data-class="Bard">🎵 Bard</li>
+                    <li class="class-item" data-class="Druid">🌳 Druid</li>
+                    <li class="class-item" data-class="Alchemist">⚗️ Alchemist</li>
+                    <li class="class-item" data-class="Shaman">🌩️ Shaman</li>
+                    <li class="class-item" data-class="Necromancer">💀 Necromancer</li>
+                    <li class="class-item" data-class="Barbarian">🔥 Barbarian</li>
+                    <li class="class-item" data-class="Duelist">🔪 Duelist</li>
+                    <li class="class-item" data-class="Artificer">⚙️ Artificer</li>
+                    <li class="class-item" data-class="Wizard">✨ Wizard</li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Modal -->
+        <div class="modal" id="class-modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-left">
+                        <p id="class-description"></p>
+                    </div>
+                    <div class="modal-right">
+                        <img id="class-image" src="" alt="Class Image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="more-about-btn">More About This Class</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="classes.js"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Header */
+header h1 {
+    font-size: 2.2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Rules Section */
+.rules-section {
+    margin-bottom: 25px;
+}
+
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.rules-section h3 {
+    font-size: 1.4em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.rules-section p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.rules-section ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.rules-section ul li {
+    position: relative;
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.rules-section ul li::before {
+    content: "🔹";
+    position: absolute;
+    left: -20px;
+}
+
+.rules-section ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    list-style: decimal;
+}
+
+.rules-section ol li {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .rules-section h2 {
+        font-size: 1.5em;
+    }
+
+    .rules-section h3 {
+        font-size: 1.3em;
+    }
+
+    .rules-section p,
+    .rules-section ul li,
+    .rules-section ol li {
+        font-size: 1em;
+    }
+}

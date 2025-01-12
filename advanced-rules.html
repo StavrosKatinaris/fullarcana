@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="advanced-rules.css">
+    <title>🎴 Full Arcana - Advanced Rules</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎴 Full Arcana Card Game</h1>
+            <p class="subtitle">Advanced Rules</p>
+        </header>
+        <main>
+            <section class="rules-section">
+                <h2>🎯 Objective</h2>
+                <p>
+                    Players compete individually or in teams, using unique class-based decks. The goal is to <strong>eliminate opponents</strong> by reducing their HP to zero or to outlast all other players/teams. The last player or team remaining with HP wins the game.
+                </p>
+            </section>
+            <section class="rules-section">
+                <h2>🛠️ Game Setup</h2>
+                <ul>
+                    <li><strong>📜 Deck Selection:</strong> Choose a class-based deck aligned with a character archetype (e.g., Warrior, Mage, Rogue). Each deck has 50 cards designed for that class’s strengths and playstyle.</li>
+                    <li><strong>❤️ Health Points (HP):</strong> Start with 100 HP. Track HP using tokens, counters, or a score sheet.</li>
+                    <li><strong>⚡ Action Points (AP):</strong> Start each turn with 7 AP to spend on card actions. Cards indicate their AP cost.</li>
+                    <li><strong>🃏 Initial Hand:</strong> Draw 5 cards at the start of the game.</li>
+                </ul>
+            </section>
+            <section class="rules-section">
+                <h2>📜 Additional Rules</h2>
+                <ul>
+                    <li>
+                        <strong>🤝 Team Play:</strong> In team mode, players can strategize with teammates, but AP cannot be shared.<br>
+                        Each player chooses to be <strong>'Frontline'</strong> or <strong>'Backline'</strong>:
+                        <ul>
+                            <li><strong>Frontline:</strong> Can be targeted by all attacks.</li>
+                            <li><strong>Backline:</strong> Cannot be targeted by melee single-target attacks; all other attacks affect them normally.</li>
+                            <li>If all players in a team are in the backline, they are automatically considered <strong>'Frontline'</strong>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>✋ Hand Limit:</strong> Players can hold up to 10 cards. If exceeded, discard down to 10 immediately.</li>
+                    <li><strong>🎲 Initiative Roll:</strong> At the start of each round, roll a d20 to determine turn order. Reroll ties.</li>
+                </ul>
+            </section>
+            <section class="rules-section">
+                <h2>🏆 Victory Conditions</h2>
+                <p>
+                    The game ends when only one player or team has HP remaining. The last standing player or team is the winner.
+                </p>
+            </section>
+            <section class="rules-section">
+                <h2>⚔️ Combat</h2>
+                <h3>🔄 Turn Structure</h3>
+                <p>
+                    <strong>🎲 Initiative Roll:</strong> At the beginning of each round, players roll a d20 to determine the turn order. Ties are rerolled.<br>
+                    <strong>🃏 On Each Player’s Turn:</strong>
+                </p>
+                <ul>
+                    <li><strong>🔄 Draw Phase:</strong> Draw up to 2 cards. If the hand exceeds 10 cards, discard immediately.</li>
+                    <li><strong>⚡ Action Phase:</strong> Play cards targeting yourself or others based on card effects. Spend AP as indicated on the cards.</li>
+                    <li><strong>⏱️ Timing:</strong>
+                        <ul>
+                            <li><strong>Quick:</strong> Play during an opponent’s turn as a reaction.</li>
+                            <li><strong>Normal/Cast:</strong> Play on your turn as standard actions.</li>
+                        </ul>
+                    </li>
+                    <li><strong>⏹️ End of Turn:</strong> Unused AP does not carry over. The next player begins their turn.</li>
+                </ul>
+            </section>
+            <section class="rules-section">
+                <h2>🔍 Advanced Combat Mechanics</h2>
+                <h3>🛡️ Damage System and Flow</h3>
+                <p>
+                    Damage involves calculations of attack power, defense, block, and success hits to determine the impact. Here's an example:
+                </p>
+                <ol>
+                    <li><strong>Damage Dealt:</strong> A card like <em>Malefic Bond</em> deals 40 damage.</li>
+                    <li><strong>Defense Reduction:</strong> The target has 20 defense, reducing damage to 20 (40 - 20 = 20).</li>
+                    <li><strong>Block Application:</strong> The target has 10 block, reducing damage to 10 (20 - 10 = 10).</li>
+                    <li><strong>Success Hit:</strong> The remaining 10 damage reduces the target’s HP.</li>
+                </ol>
+                <h3>🎯 Targeting Defense and Specialized Defenses</h3>
+                <ul>
+                    <li><strong>Targeting Defense:</strong> Some cards, like <em>Divine Strike</em>, deal damage directly to defense without affecting HP, weakening defenses for follow-up attacks.</li>
+                    <li><strong>Specialized Defenses:</strong> Certain defenses block specific damage types. For example, <em>Enchanted Armor</em> blocks only magical damage.</li>
+                </ul>
+                <h3>⏰ Effect Resolution Timing</h3>
+                <p>
+                    <strong>Start of Turn:</strong> Effects resolve in this order: AP buffs, AP reductions, AP debuffs, AP regeneration, defense buffs, defense debuffs, and crowd control effects (e.g., stuns).<br>
+                    <strong>End of Turn:</strong> Health-related effects resolve, including healing-over-time (HoT) and damage-over-time (DoT) effects.
+                </p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
