@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,198 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background-color: #1a1a1a;
+    color: #f4e0d8;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Flying Axes Animation */
+.flying-axes {
+    position: relative;
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.axe {
+    position: absolute;
+    font-size: 2.5em;
+    color: #f9c74f; /* Fiery gold */
+    animation: throw-axe 3s linear infinite;
+}
+
+.axe1 {
+    top: 20px;
+    right: -50px;
+    animation-delay: 0s;
+}
+
+.axe2 {
+    top: 50px;
+    right: -50px;
+    animation-delay: 1s;
+}
+
+.axe3 {
+    top: 35px;
+    right: -50px;
+    animation-delay: 2s;
+}
+
+/* Throw Animation: Right to Left */
+@keyframes throw-axe {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-400px) rotate(-360deg);
+    }
+    100% {
+        transform: translateX(-800px) rotate(-720deg);
+    }
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #4a0000, #780000);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Header */
-header {
+header h1 {
+    font-size: 2.5em;
+    color: #f9c74f; /* Fiery gold for the header */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 2em;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
-}
-
-/* Sections */
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #444;
     margin-bottom: 10px;
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #f4e0d8; /* Light parchment-like text */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #f9c74f; /* Fiery gold for section titles */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #8b3b3b; /* Blood red underline */
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+/* Paragraph Styling */
+.rules-section p {
+    font-size: 1.2em;
+    color: #f4e0d8; /* Light parchment-like text */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* List Styling */
+.rules-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.rules-section ul li {
+    font-size: 1.1em;
+    color: #f4e0d8; /* Light parchment-like text */
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rules-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    color: #f9c74f; /* Fiery gold bullets */
+}
+
+/* Cardback Image */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    border: 3px solid #8b3b3b; /* Blood red border */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff;
+    background-color: #8b3b3b; /* Blood red button */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: #702c2c; /* Darker red on hover */
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    color: #f9c74f; /* Fiery gold for footer text */
+    font-size: 0.9em;
+    text-align: center;
+}
+
+footer a {
+    color: #f9c74f; /* Fiery gold link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p,
+    .rules-section ul li {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }

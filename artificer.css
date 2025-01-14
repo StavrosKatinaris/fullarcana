@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,144 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Roboto Mono", monospace;
+    background-color: #1a1a1a; /* Dark mechanical backdrop */
+    color: #c4c4c4; /* Metallic gray text */
+    padding: 20px;
+    line-height: 1.6;
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #2a2a2a, #404040); /* Subtle metallic gradient */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #6e6e6e; /* Gear-like metallic border */
 }
 
-/* Header */
-header {
+/* Header Styling */
+header h1 {
+    font-size: 2.5em;
+    color: #a1d6f9; /* Tech blue */
     text-align: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 2em;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
-}
-
-/* Sections */
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #444;
     margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #9ec3db; /* Light tech blue */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Rotating Gears */
+.gear-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between gears */
+    margin-bottom: 20px;
+}
+
+.gear {
+    font-size: 2.5em;
+    color: #a1d6f9;
+    animation: rotate-clockwise 3s linear infinite;
+}
+
+.gear2 {
+    animation: rotate-counterclockwise 3s linear infinite;
+}
+
+.gear3 {
+    animation: rotate-clockwise 3s linear infinite;
+}
+
+/* Clockwise Rotation */
+@keyframes rotate-clockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Counterclockwise Rotation */
+@keyframes rotate-counterclockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Section Headers */
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #a1d6f9; /* Light tech blue */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #6e6e6e;
+    padding-bottom: 5px;
+}
+
+/* Paragraph Styling */
+.rules-section p {
+    font-size: 1.2em;
+    color: #e0e0e0; /* Light metallic gray text */
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff;
+    background-color: #6e6e6e; /* Tech gray button */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
+.btn:hover {
+    background-color: #505050; /* Darker gray on hover */
+}
 
-    h1 {
-        font-size: 1.5em;
-    }
+/* Cardback Accent */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    border: 3px solid #6e6e6e; /* Gear-like metallic frame */
+}
 
-    h2 {
-        font-size: 1.3em;
-    }
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #9ec3db; /* Tech blue footer */
+    font-size: 0.9em;
+}
 
-    .list {
-        font-size: 0.9em;
-    }
+footer a {
+    color: #a1d6f9; /* Tech blue link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }

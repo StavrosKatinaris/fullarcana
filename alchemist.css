@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -8,69 +8,139 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    background-color: #1e2d26; /* Dark green backdrop */
+    color: #e4e7db; /* Soft parchment-like text color */
+    padding: 20px;
+    line-height: 1.6;
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #1e2d26, #314d3f); /* Subtle green gradient */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #739b6e; /* Alchemical green border */
 }
 
-/* Header */
-header {
+/* Header Styling */
+header h1 {
+    font-size: 2.5em;
+    color: #c4d3c0; /* Muted gold */
     text-align: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 2em;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
-}
-
-/* Sections */
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #444;
     margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #a2b7a1; /* Soft alchemical green */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #c4e7b2; /* Sage green */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #798678;
+    padding-bottom: 5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Paragraph Styling */
+.rules-section p {
+    font-size: 1.2em;
+    color: #d7e0d2; /* Light parchment text */
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff;
+    background-color: #739b6e; /* Green alchemical button */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: #5c8656; /* Darker green on hover */
+}
+
+/* Cardback Accent */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    border: 3px solid #739b6e; /* Frame the cardback */
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #a2b7a1; /* Subtle green footer */
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #c4d3c0; /* Muted gold link */
+    text-decoration: none;
+    font-weight: bold;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+
+/* Animation update for emojis */
+.potion-animation {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+    color: #e7ebd1;
+    animation: glow-effect 2s infinite alternate;
+}
+
+@keyframes glow-effect {
+    from {
+        text-shadow: 0 0 10px #d7f7ad, 0 0 20px #aed68e, 0 0 30px #8bbd77;
+    }
+    to {
+        text-shadow: 0 0 20px #e0f8b7, 0 0 30px #b7e094, 0 0 40px #96c378;
     }
 }

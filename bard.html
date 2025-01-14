@@ -4,78 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bard.css">
-    <title>Bard - Full Arcana</title>
+    <title>🎵 Bard Class</title>
 </head>
 <body>
     <div class="container">
+        <!-- Waving Notes Animation -->
+        <div class="waving-notes">
+            <span class="note">🎵</span>
+            <span class="note">🎶</span>
+            <span class="note">🎵</span>
+            <span class="note">🎶</span>
+        </div>
+
+        <!-- Header Section -->
         <header>
-            <h1>Bard</h1>
-            <p class="subtitle">Deck Mechanics and Gameplay</p>
+            <h1>🎵 Bard Class 🎵</h1>
+            <p class="subtitle">"Compose melodies, inspire allies, and control the battlefield!"</p>
         </header>
-        <main>
-            <section class="deck-mechanics">
-                <h2>Deck Mechanics and Gameplay</h2>
-                <p>
-                    The Bard deck revolves around composing melodies using Note Cards from various music genres, each with unique effects. Players gradually craft songs that can be "released" as a quick or normal action for powerful effects. Each genre corresponds to a distinct gameplay mechanic, offering buffs, debuffs, or situational advantages. The Bard’s gameplay emphasizes creativity and synergy, rewarding strategic composition and timing to influence the battlefield and support allies or hinder foes.
-                </p>
-            </section>
-            <section class="description">
-                <h2>Description</h2>
-                <p>
-                    The Bard is a versatile and supportive class, weaving melodies to buff allies, debuff enemies, and disrupt the battlefield. Through their musical mastery, Bards can adapt to any situation, excelling at synergy and creative play.
-                </p>
-                <h3>Pros:</h3>
-                <div class="list">
-                    Highly flexible with buffs, debuffs, and utility effects.<br>
-                    Excellent at enhancing allies and weakening enemies.<br>
-                    Unique note-combo system creates high-synergy opportunities.
-                </div>
-                <h3>Cons:</h3>
-                <div class="list">
-                    Requires setup and strategic planning to maximize note combinations.<br>
-                    Lacks strong direct damage options.<br>
-                    Vulnerable if isolated without allies to support.
-                </div>
-            </section>
-            <section class="stats">
-                <h2>Class Stats</h2>
-                <div class="list">
-                    <strong>Offense:</strong> 5/10 - Limited damage potential, mostly through supporting attacks.<br>
-                    <strong>Defense:</strong> 6/10 - Strong ally-protection abilities but weak self-defense.<br>
-                    <strong>Utility:</strong> 10/10 - Exceptional buffs, debuffs, and situational adaptability.<br>
-                    <strong>Complexity:</strong> 9/10 - Challenging to master due to reliance on note sequencing and synergy.<br>
-                    <strong>Synergy:</strong> 10/10 - Thrives in cooperative play, enhancing team effectiveness.<br>
-                    <strong>Tempo:</strong> 7/10 - Moderate pace, with bursts of impact through well-timed note combos.<br>
-                    <strong>Risk:</strong> 5/10 - Relatively low-risk as long as the Bard manages resources effectively.
-                </div>
-            </section>
-            <section class="class-guide">
-                <h2>Class Guide</h2>
-                <h3>Early Game:</h3>
-                <div class="list">
-                    <strong>Focus:</strong> Establish note combinations while protecting allies.<br>
-                    <strong>Tips:</strong> Use utility cards like Prelude of Harmony to set up combos for future turns.
-                </div>
-                <h3>Mid Game:</h3>
-                <div class="list">
-                    <strong>Focus:</strong> Start buffing allies and debuffing enemies to shift the battlefield in your favor.<br>
-                    <strong>Tips:</strong> Play cards like Melody of Courage to strengthen allies while disrupting enemy strategies.
-                </div>
-                <h3>Late Game:</h3>
-                <div class="list">
-                    <strong>Focus:</strong> Use powerful note-combo effects to unleash impactful buffs or crippling debuffs.<br>
-                    <strong>Tips:</strong> Save high-synergy cards like Symphony of Triumph for critical moments to turn the tide.
-                </div>
-                <h3>Playstyle Tips:</h3>
-                <div class="list">
-                    <strong>Note Sequencing:</strong> Plan your notes carefully to trigger powerful combo effects.<br>
-                    <strong>Support Allies:</strong> Prioritize enhancing allies with cards like Chant of Renewal to keep your team strong.<br>
-                    <strong>Disrupt Enemies:</strong> Use debuffs like Disharmony Strike to weaken enemies and control the board.<br>
-                    <strong>Adaptability:</strong> Stay flexible, using your wide range of utility to respond to changing scenarios.<br>
-                    <strong>Team Synergy:</strong> Coordinate with allies to maximize the impact of your buffs and utility.
-                </div>
-            </section>
-        </main>
+
+        <!-- Deck Mechanics and Gameplay -->
+        <section class="rules-section">
+            <h2>🎼 Deck Mechanics and Gameplay</h2>
+            <p>
+                The Bard deck revolves around composing melodies using Note Cards from various music genres, each with unique effects. Players gradually craft songs that can be "released" as a quick or normal action for powerful effects. Each genre corresponds to a distinct gameplay mechanic, offering buffs, debuffs, or situational advantages. The Bard’s gameplay emphasizes creativity and synergy, rewarding strategic composition and timing to influence the battlefield and support allies or hinder foes.
+            </p>
+        </section>
+
+        <!-- Class Description -->
+        <section class="rules-section">
+            <h2>🔍 Description</h2>
+            <p>
+                The Bard is a versatile and supportive class, weaving melodies to buff allies, debuff enemies, and disrupt the battlefield. Through their musical mastery, Bards can adapt to any situation, excelling at synergy and creative play.
+            </p>
+        </section>
+
+        <!-- How to Play Section -->
+        <section class="rules-section">
+            <h2>🃏 How to Play</h2>
+            <p>
+                The <strong>Bard</strong> is a creative and adaptive class, using <strong>Note Cards</strong> (C, D, E, F, G) to compose powerful <strong>Songs</strong> that provide diverse effects. Each <strong>Note Card</strong> belongs to one of 10 musical categories:
+            </p>
+            <ul>
+                <li><strong>Pop:</strong> Healing effects.</li>
+                <li><strong>Rock:</strong> Physical damage.</li>
+                <li><strong>Jazz:</strong> Utility and AP manipulation.</li>
+                <li><strong>Classical:</strong> Defense and buffs.</li>
+                <li><strong>Heavy Metal:</strong> Debuffs.</li>
+                <li><strong>Country:</strong> Self-sustain.</li>
+                <li><strong>Electronic:</strong> Movement and speed enhancements.</li>
+                <li><strong>Blues:</strong> Damage-over-time (DoT).</li>
+                <li><strong>Folk:</strong> Summons and ally support.</li>
+                <li><strong>Punk:</strong> Discard and hand manipulation.</li>
+            </ul>
+            <p>
+                The Bard’s unique mechanic, <strong>Song Composition</strong>, involves playing Note Cards onto the board to create an array of cards, forming a Song. Notes gain additional effects depending on the sequence of previous Notes in the Song (e.g., "If the previous Notes are C, F, heals 5 HP to the target"). The Bard can compose multiple Songs simultaneously and play them as either <strong>Normal Actions</strong> or <strong>Quick Actions</strong>, depending on their strategic needs.
+            </p>
+        </section>
+
+        <!-- Pros and Cons -->
+        <section class="rules-section">
+            <h2>⚖️ Pros and Cons</h2>
+            <h3>✅ Pros:</h3>
+            <ul>
+                <li>🎵 Highly flexible with buffs, debuffs, and utility effects.</li>
+                <li>🎵 Excellent at enhancing allies and weakening enemies.</li>
+                <li>🎵 Unique note-combo system creates high-synergy opportunities.</li>
+            </ul>
+            <h3>⚠️ Cons:</h3>
+            <ul>
+                <li>❌ Requires setup and strategic planning to maximize note combinations.</li>
+                <li>❌ Lacks strong direct damage options.</li>
+                <li>❌ Vulnerable if isolated without allies to support.</li>
+            </ul>
+        </section>
+
+        <!-- Class Stats -->
+        <section class="rules-section">
+            <h2>📊 Class Stats</h2>
+            <ul>
+                <li>🎵 <strong>Offense:</strong> 5/10 - Limited damage potential, mostly through supporting attacks.</li>
+                <li>🛡️ <strong>Defense:</strong> 6/10 - Strong ally-protection abilities but weak self-defense.</li>
+                <li>✨ <strong>Utility:</strong> 10/10 - Exceptional buffs, debuffs, and situational adaptability.</li>
+                <li>🧠 <strong>Complexity:</strong> 9/10 - Challenging to master due to reliance on note sequencing and synergy.</li>
+                <li>🔗 <strong>Synergy:</strong> 10/10 - Thrives in cooperative play, enhancing team effectiveness.</li>
+                <li>⏳ <strong>Tempo:</strong> 7/10 - Moderate pace, with bursts of impact through well-timed note combos.</li>
+                <li>⚠️ <strong>Risk:</strong> 5/10 - Relatively low-risk as long as the Bard manages resources effectively.</li>
+            </ul>
+        </section>
+
+        <!-- Class Guide -->
+        <section class="rules-section">
+            <h2>📜 Class Guide</h2>
+            <h3>🏁 Early Game:</h3>
+            <p>
+                Focus on building your Songs by placing Note Cards strategically. Use healing genres like <strong>Pop</strong> or defensive genres like <strong>Classical</strong> to stabilize the early game.
+            </p>
+            <h3>🎵 Mid Game:</h3>
+            <p>
+                Transition to supporting allies or pressuring opponents with impactful Songs. Use genres like <strong>Rock</strong> for damage or <strong>Jazz</strong> for resource manipulation.
+            </p>
+            <h3>🎶 Late Game:</h3>
+            <p>
+                Release your most powerful Songs to amplify team synergy or debilitate opponents. Debuff-heavy genres like <strong>Heavy Metal</strong> and DoT effects from <strong>Blues</strong> shine in the late game.
+            </p>
+        </section>
+
+        <!-- Playstyle Tips -->
+        <section class="rules-section">
+            <h2>🎮 Playstyle Tips</h2>
+            <ul>
+                <li>🔄 <strong>Adapt Your Songs:</strong> Match your compositions to the flow of battle. Use healing or defense against high-pressure decks and debuffs or DoT against sustain-heavy decks.</li>
+                <li>🎵 <strong>Synergize Notes:</strong> Plan Note sequences carefully to trigger additional effects.</li>
+                <li>⚡ <strong>Quick Actions:</strong> Save Quick Songs for clutch plays or countering opponents’ moves.</li>
+                <li>✨ <strong>Support Your Allies:</strong> Prioritize buffs and healing to maximize team effectiveness in multiplayer modes.</li>
+            </ul>
+        </section>
+
+        <!-- Cardback -->
+        <img src="bard.png" alt="Bard Card Back" class="cardback">
+
+        <!-- Footer Section -->
+        <footer>
+            <p>💡 Explore other classes or refine your melodies!</p>
+            <a href="classes.html" class="btn">Back to Classes</a>
+        </footer>
     </div>
 </body>
 </html>
