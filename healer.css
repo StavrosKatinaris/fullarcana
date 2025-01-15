@@ -8,71 +8,84 @@
 /* Body Styling */
 body {
     font-family: "Cinzel", serif;
-    background: #fdf4e3; /* Light parchment/paper color */
+    background: linear-gradient(135deg, #ffed8a, #000000); /* Light parchment/paper gradient */
     color: #333333;
     padding: 20px;
     line-height: 1.8;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #fffefc, #f8f2e7); /* Subtle paper-like gradient */
+    background: #ffffff;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid #e0d9c8; /* Light border for a classic look */
 }
 
-/* Healing Light Animation */
+/* Healing Hearts Animation */
 .healing-animation {
     text-align: center;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-.light {
+.heart {
     font-size: 2.5em;
-    color: #ffd700; /* Golden light */
-    animation: pulse 2s infinite ease-in-out;
+    color: #ff5c5c; /* Red hearts */
+    opacity: 0.3; /* Start with low visibility */
+    animation: heal 3s infinite ease-in-out;
     display: inline-block;
-    margin: 0 5px;
 }
 
-.light:nth-child(1) {
+.heart:nth-child(1) {
     animation-delay: 0s;
 }
 
-.light:nth-child(2) {
-    animation-delay: 0.5s;
+.heart:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
-.light:nth-child(3) {
-    animation-delay: 1s;
+.heart:nth-child(3) {
+    animation-delay: 0.4s;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 0.5;
-        transform: scale(1);
+.heart:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.heart:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+@keyframes heal {
+    0% {
+        opacity: 0.3; /* Start partially visible */
     }
     50% {
-        opacity: 1;
-        transform: scale(1.2);
+        opacity: 1; /* Fully visible during healing */
+    }
+    100% {
+        opacity: 1; /* Stay fully visible */
     }
 }
 
 /* Header */
 header h1 {
     font-size: 2.5em;
-    color: #ffd700; /* Golden header */
+    color: #ff5c5c; /* Red header */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     margin-bottom: 10px;
 }
 
 header .subtitle {
     font-size: 1.2em;
-    color: #888888;
+    color: #555555;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -80,9 +93,9 @@ header .subtitle {
 /* Section Headers */
 .rules-section h2 {
     font-size: 1.8em;
-    color: #ffd700; /* Golden section headers */
+    color: #ff5c5c; /* Red section headers */
     margin-bottom: 15px;
-    border-bottom: 2px solid #e0d9c8; /* Parchment-colored underline */
+    border-bottom: 2px solid #ccc; /* Light gray underline */
     padding-bottom: 5px;
     text-align: left;
 }
@@ -117,7 +130,7 @@ header .subtitle {
     left: 0;
     top: 0;
     font-size: 1.5em;
-    color: #ffd700; /* Golden bullet points */
+    color: #ff5c5c; /* Red bullets */
 }
 
 /* Buttons */
@@ -126,7 +139,7 @@ header .subtitle {
     padding: 12px 25px;
     font-size: 1em;
     color: #ffffff;
-    background-color: #ffd700; /* Golden button */
+    background-color: #ff5c5c; /* Red button */
     border: none;
     border-radius: 5px;
     text-transform: uppercase;
@@ -137,7 +150,7 @@ header .subtitle {
 }
 
 .btn:hover {
-    background-color: #e0c100; /* Darker gold on hover */
+    background-color: #e14a4a; /* Darker red on hover */
     transform: scale(1.05);
 }
 
@@ -149,19 +162,19 @@ header .subtitle {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    border: 1px solid #e0d9c8; /* Light border for the cardback */
+    border: 3px solid #ccc; /* Light gray border */
 }
 
 /* Footer */
 footer {
     margin-top: 30px;
-    color: #888888;
+    color: #777777; /* Muted text color */
     font-size: 1em;
     text-align: center;
 }
 
 footer a {
-    color: #ffd700; /* Golden footer link */
+    color: #ff5c5c; /* Red footer link */
     text-decoration: none;
     font-weight: bold;
 }
