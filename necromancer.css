@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,206 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background: linear-gradient(135deg, #1b1b1b, #333333); /* Dark mystical gradient */
+    color: #eaeaea; /* Light text for contrast */
+    padding: 20px;
+    line-height: 1.8;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #242424;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Floating Skulls Animation */
+.floating-skulls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.skull {
+    margin-top: 100px;
+    position: absolute;
+    font-size: 2em;
+    color: #666; /* Gray skulls */
+    animation: float 30s infinite linear, fade-out 5s infinite linear;
+    animation-delay: calc(-1s - (0s * var(--delay)));
+    left: calc(var(--x-position) * 100%);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(500%);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Header */
-header {
+header h1 {
+    font-size: 2.5em;
+    color: #bdbdbd; /* Faded gray */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 2em;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
-}
-
-/* Sections */
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #444;
     margin-bottom: 10px;
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #888;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 1.8em;
+    color: #bdbdbd; /* Faded gray headers */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+/* Paragraph Styling */
+section p {
+    font-size: 1.2em;
+    color: #eaeaea;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+ul li {
+    font-size: 1.2em;
+    color: #eaeaea;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    color: #666; /* Gray skull bullets */
+}
+
+/* Cardback */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #444; /* Subtle border */
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff; /* Light text */
+    background-color: #444; /* Dark gray button */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 20px auto; /* Center horizontally */
+}
+
+.btn:hover {
+    background-color: #666; /* Lighter gray on hover */
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    color: #9a9abc; /* Muted text color */
+    font-size: 1em;
+    text-align: center;
+}
+
+footer a {
+    display: inline-block; /* Treat link like a block to center */
+    text-align: center; /* Ensure text is centered */
+    color: #ffffff; /* Light text */
+    text-decoration: none;
+    margin: 0 auto; /* Center horizontally */
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
-        font-size: 1.5em;
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
     }
 
     h2 {
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
 
-    .list {
+    section p,
+    ul li {
+        font-size: 1em;
+    }
+
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }

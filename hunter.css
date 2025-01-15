@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,194 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a); /* Dark muted gradient */
+    color: #eaeaea; /* Light gray text for readability */
+    padding: 20px;
+    line-height: 1.8;
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #1f1f1f; /* Dark gray background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Header */
-header {
+/* Arrow Animation */
+.arrow-animation {
     text-align: center;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 2em;
-    color: #333;
+.arrow {
+    font-size: 2.5em;
+    color: #8f8f8f; /* Muted gray for arrows */
+    animation: arrow-fade 5s infinite ease-in-out;
+    display: inline-block;
+    margin: 0 5px;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
+.arrow:nth-child(1) {
+    animation-delay: 0s;
 }
 
-/* Sections */
-section {
-    margin-bottom: 20px;
+.arrow:nth-child(2) {
+    animation-delay: 0.5s;
 }
 
-h2 {
-    font-size: 1.5em;
-    color: #444;
+.arrow:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes arrow-fade {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+}
+
+/* Header */
+header h1 {
+    font-size: 2.5em;
+    color: #d1d1d1; /* Muted light gray for the header */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
     margin-bottom: 10px;
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #a3a3a3; /* Muted gray for subtitle */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #d1d1d1; /* Muted light gray for section headers */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4a4a4a; /* Darker gray underline */
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+/* Paragraph Styling */
+.rules-section p {
+    font-size: 1.2em;
+    color: #eaeaea; /* Light gray for text */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* List Styling */
+.rules-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.rules-section ul li {
+    font-size: 1.2em;
+    color: #eaeaea; /* Light gray for text */
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rules-section ul li::before {
+    content: "🏹";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    color: #6b6b6b; /* Darker gray for bullets */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #f4f4f4; /* Light gray text for contrast */
+    background-color: #333333; /* Dark muted button background */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+    background-color: #444444; /* Slightly lighter gray on hover */
+    transform: scale(1.05);
+}
+
+/* Cardback Image */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+    border: 2px solid #4a4a4a; /* Dark gray border */
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    color: #a3a3a3; /* Muted gray for footer text */
+    font-size: 1em;
+    text-align: center;
+}
+
+footer a {
+    color: #d1d1d1; /* Light gray for footer link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p,
+    .rules-section ul li {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }

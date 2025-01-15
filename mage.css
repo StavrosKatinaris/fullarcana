@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,235 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background: linear-gradient(135deg, #0d0d24, #1a1a3d); /* Dark arcane gradient */
+    color: #eaeaea; /* Light text for contrast */
+    padding: 20px;
+    line-height: 1.8;
+    overflow-x: hidden; /* Prevent horizontal scrolling but allow vertical scrolling */
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #2e2c4c, #38385a); /* Arcane theme */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Header */
-header {
+/* Falling Stars Animation */
+.falling-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* No interaction */
+    overflow: hidden;
+    z-index: 1; /* Behind content */
+}
+
+.star {
+    position: absolute;
+    font-size: 1.5em;
+    color: #ffd700; /* Golden stars */
+    animation: fall 3s linear infinite, fade-out 3s linear infinite;
+    animation-delay: calc(-1s - (3s * var(--delay))); /* Random start delay */
+    left: calc(var(--x-position) * 100%); /* Random horizontal position */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(110%);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Arcane Orb Animation */
+.arcane-animation {
     text-align: center;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 2em;
-    color: #333;
+.orb {
+    font-size: 2.5em;
+    color: #a37cff; /* Arcane purple */
+    animation: orb-glow 2s infinite ease-in-out;
+    display: inline-block;
+    margin: 0 5px;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
+.orb:nth-child(1) {
+    animation-delay: 0s;
 }
 
-/* Sections */
-section {
-    margin-bottom: 20px;
+.orb:nth-child(2) {
+    animation-delay: 0.5s;
 }
 
-h2 {
-    font-size: 1.5em;
-    color: #444;
+.orb:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes orb-glow {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Header */
+header h1 {
+    font-size: 2.5em;
+    color: #a37cff; /* Arcane purple */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
     margin-bottom: 10px;
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #9a9abc;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #a37cff; /* Arcane purple */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #6a6abf; /* Subtle accent */
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+/* Paragraph Styling */
+.rules-section p {
+    font-size: 1.2em;
+    color: #eaeaea; /* Light text */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* List Styling */
+.rules-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.rules-section ul li {
+    font-size: 1.2em;
+    color: #eaeaea;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rules-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    color: #a37cff;
+}
+
+/* Cardback */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #6a6abf; /* Subtle border */
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff; /* Light text */
+    background-color: #38385a; /* Button background */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    background-color: #4a4a6b; /* Slightly lighter on hover */
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    color: #9a9abc; /* Muted text color */
+    font-size: 1em;
+    text-align: center;
+}
+
+footer a {
+    color: #a37cff; /* Arcane purple */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p,
+    .rules-section ul li {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }
