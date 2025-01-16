@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,163 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background: linear-gradient(135deg, #1e1e2e, #3d3d64); /* Dark blue to grey gradient */
+    color: #ffffff;
+    padding: 20px;
+    line-height: 1.8;
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #2a2a4e; /* Dark indigo container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Header */
-header {
+/* Spell Animation */
+.spell-animation {
     text-align: center;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 2em;
-    color: #333;
+.spell {
+    font-size: 3em;
+    color: #73c0ff; /* Light blue spells */
+    animation: glow 3s infinite alternate, float 4s infinite;
 }
 
-.subtitle {
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #4da6ff, 0 0 15px #73c0ff;
+    }
+    100% {
+        text-shadow: 0 0 35px #73c0ff, 0 0 30px #4da6ff;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Header */
+header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #73c0ff; /* Light blue header */
+}
+
+header .subtitle {
     font-size: 1.2em;
-    color: #777;
+    text-align: center;
+    color: #cccccc;
 }
 
 /* Sections */
-section {
+.rules-section {
     margin-bottom: 20px;
 }
 
-h2 {
-    font-size: 1.5em;
-    color: #444;
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #73c0ff;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #73c0ff; /* Light blue underline */
+    padding-bottom: 5px;
+}
+
+.rules-section p,
+.rules-section ul li {
+    font-size: 1.2em;
     margin-bottom: 10px;
 }
 
-.list {
+/* Cardback Styling */
+.cardback {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #73c0ff; /* Light blue border */
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff;
+    background-color: #73c0ff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+    background-color: #4da6ff;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer p {
+    font-size: 1.1em;
+    color: #cccccc;
+}
+
+footer a {
+    color: #73c0ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p,
+    .rules-section ul li {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }

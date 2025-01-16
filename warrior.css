@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,195 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background: linear-gradient(135deg, #1a1a1a, #3b0e0e); /* Black to dark red gradient */
+    color: #ffffff; /* White text */
+    padding: 20px;
+    line-height: 1.8;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #2b2b2b; /* Dark grey container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    border: 2px solid #aa3e3e; /* Deep red border */
+}
+
+/* Sword Animation */
+.sword-animation {
+    position: relative;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.sword {
+    font-size: 4.5em;
+    color: #e6e6e6; /* Off-white swords */
+    position: absolute;
+    animation: float 3s ease-in-out infinite;
+}
+
+.sword:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.sword:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.sword:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(0px);
+    }
 }
 
 /* Header */
-header {
+header h1 {
+    font-size: 2.5em;
+    color: #ff4a4a; /* Vibrant red header text */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 2em;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
-}
-
-/* Sections */
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #444;
     margin-bottom: 10px;
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    color: #cccccc; /* Light grey subtitle */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #ff4a4a; /* Vibrant red section headers */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #555; /* Subtle dark underline */
+    padding-bottom: 5px;
+}
+
+/* Paragraph Styling */
+.rules-section p {
+    font-size: 1.2em;
+    color: #ffffff; /* White text */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* List Styling */
+.rules-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.rules-section ul li {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.rules-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    color: #ff4a4a; /* Red bullets */
+}
+
+/* Cardback */
+.cardback {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #aa3e3e; /* Deep red border */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff;
+    background-color: #aa3e3e; /* Deep red button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #ff4a4a; /* Brighter red hover effect */
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #cccccc; /* Light grey footer text */
+    font-size: 1em;
+}
+
+footer a {
+    color: #ff4a4a; /* Red footer link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p,
+    .rules-section ul li {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }

@@ -1,4 +1,4 @@
-/* Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,159 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding: 10px;
+    font-family: "Cinzel", serif;
+    background: linear-gradient(135deg, #1e1e1e, #3a1d42); /* Black to dark magenta gradient */
+    color: #ffffff;
+    padding: 20px;
+    line-height: 1.8;
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #2a2a3e; /* Dark grey container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Header */
-header {
+/* Rune Animation */
+.rune-animation {
     text-align: center;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 2em;
-    color: #333;
+.rune {
+    font-size: 3em;
+    color: #ff80c0;
+    animation: glow 3s infinite alternate;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    color: #777;
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff4da6, 0 0 10px #ff80c0;
+    }
+    100% {
+        text-shadow: 0 0 15px #ff80c0, 0 0 30px #ff4da6;
+    }
 }
 
-/* Sections */
-section {
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #444;
+/* Header */
+header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #ff80c0;
     margin-bottom: 10px;
 }
 
-.list {
+header .subtitle {
+    font-size: 1.2em;
+    text-align: center;
+    color: #cccccc;
+}
+
+/* Sections */
+.rules-section {
+    margin-bottom: 20px;
+}
+
+.rules-section h2 {
+    font-size: 1.8em;
+    color: #ff80c0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ff80c0; /* Magenta underline */
+    padding-bottom: 5px;
+}
+
+.rules-section p,
+.rules-section ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.rules-section ul li::before {
+    content: "";
+}
+
+/* Cardback Styling */
+.cardback {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ff80c0; /* Magenta border */
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 12px 25px;
     font-size: 1em;
-    color: #555;
-    line-height: 1.5;
+    color: #ffffff;
+    background-color: #ff80c0;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+    background-color: #ff4da6; /* Brighter magenta on hover */
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer p {
+    font-size: 1.1em;
+    color: #cccccc; /* Light grey footer text */
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #ff80c0; /* Magenta footer link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    h1 {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+
+    .rules-section h2 {
         font-size: 1.5em;
     }
 
-    h2 {
-        font-size: 1.3em;
+    .rules-section p,
+    .rules-section ul li {
+        font-size: 1em;
     }
 
-    .list {
+    .btn {
         font-size: 0.9em;
+        padding: 10px 20px;
     }
 }
