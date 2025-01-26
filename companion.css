@@ -67,7 +67,35 @@ select {
     color: #007bff;
 }
 
-/* Button Styling */
+/* Special Counter */
+.special-counter-group {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#special-counter-label {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.special-counter {
+    width: 50%;
+    padding: 5px;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 button {
     background-color: #007bff;
     color: white;
@@ -90,6 +118,60 @@ button:hover {
     color: #007bff;
 }
 
+#initiative-result.rolling {
+    animation: rollAnimation 0.5s ease;
+}
+
+@keyframes rollAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Turn Counter */
+#turn-counter {
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* HP History */
+#hp-history {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#hp-history ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+#hp-history li {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.heal {
+    color: green;
+}
+
+.damage {
+    color: red;
+}
+
+/* Lock Class Button */
 #class-select {
     width: 60%;
 }
@@ -110,3 +192,4 @@ button:hover {
 #lock-class-toggle:hover {
     background-color: #0056b3;
 }
+

@@ -1,3 +1,5 @@
+let turnCounter = 0;
+
 // Classes with special counters
 const specialClasses = {
     Healer: "Holy Essence",
@@ -5,7 +7,7 @@ const specialClasses = {
     Barbarian: "Rage Points",
 };
 
-const seasons = ["Spring", "Summer", "Fall", "Winter"];
+const seasons = ["Spring 🌸", "Summer ☀️", "Fall 🍂", "Winter ❄️"];
 
 // Handle class change to update special counter
 document.getElementById("class-select").addEventListener("change", (event) => {
@@ -16,117 +18,95 @@ document.getElementById("class-select").addEventListener("change", (event) => {
     const seasonCounter = document.getElementById("season-counter");
 
     if (specialClasses[selectedClass]) {
-        // Show the special counter group
         specialCounterGroup.style.display = "flex";
 
         if (selectedClass === "Druid") {
-            // For Druid, display seasons
+            // Druid uses Seasons
             specialCounterLabel.textContent = "Seasons";
-            specialCounterInput.style.display = "none"; // Hide numeric input
-            seasonCounter.style.display = "block"; // Show seasons
-            seasonCounter.textContent = localStorage.getItem("season-counter") || "Spring"; // Default or cached season
+            specialCounterInput.style.display = "none";
+            seasonCounter.style.display = "block";
+            seasonCounter.textContent = localStorage.getItem("season-counter") || "Spring 🌸";
         } else {
-            // For Healer and Barbarian, display numeric counter
+            // Healer and Barbarian use numeric counters
             specialCounterLabel.textContent = specialClasses[selectedClass];
-            specialCounterInput.style.display = "block"; // Show numeric input
-            specialCounterInput.value = localStorage.getItem("special-counter") || 0; // Default or cached value
-            seasonCounter.style.display = "none"; // Hide seasons
+            specialCounterInput.style.display = "block";
+            specialCounterInput.value = localStorage.getItem("special-counter") || 0;
+            seasonCounter.style.display = "none";
         }
     } else {
-        // Hide the special counter group if the class does not have one
+        // Hide the special counter group if no special counter
         specialCounterGroup.style.display = "none";
     }
 });
 
-// Load cached values from localStorage when the page loads
-window.addEventListener("load", () => {
-    const cachedClass = localStorage.getItem("class-select");
-    const cachedHP = localStorage.getItem("hp");
-    const cachedDefense = localStorage.getItem("defense");
-    const cachedBlock = localStorage.getItem("block");
-    const cachedDamage = localStorage.getItem("damage-received");
-
-    // Restore class selection
-    if (cachedClass) {
-        document.getElementById("class-select").value = cachedClass;
-        document.getElementById("class-select").dispatchEvent(new Event("change")); // Trigger class-specific updates
-    }
-
-    // Restore other values
-    if (cachedHP) document.getElementById("hp").value = cachedHP;
-    if (cachedDefense) document.getElementById("defense").value = cachedDefense;
-    if (cachedBlock) document.getElementById("block").value = cachedBlock;
-    if (cachedDamage) document.getElementById("damage-received").value = cachedDamage;
-});
-
-// Save values to localStorage when inputs are changed
-const saveToLocalStorage = () => {
-    localStorage.setItem("class-select", document.getElementById("class-select").value);
-    localStorage.setItem("hp", document.getElementById("hp").value);
-    localStorage.setItem("defense", document.getElementById("defense").value);
-    localStorage.setItem("block", document.getElementById("block").value);
-    localStorage.setItem("damage-received", document.getElementById("damage-received").value);
-
-    // Save special counter
-    const specialCounterInput = document.getElementById("special-counter");
-    if (specialCounterInput.style.display === "block") {
-        localStorage.setItem("special-counter", specialCounterInput.value);
-    }
-
-    // Save current season for Druid
-    const seasonCounter = document.getElementById("season-counter");
-    if (seasonCounter.style.display === "block") {
-        localStorage.setItem("season-counter", seasonCounter.textContent);
-    }
-};
-
-// Attach change event listeners to all inputs
-document.getElementById("class-select").addEventListener("change", saveToLocalStorage);
-document.getElementById("hp").addEventListener("input", saveToLocalStorage);
-document.getElementById("defense").addEventListener("input", saveToLocalStorage);
-document.getElementById("block").addEventListener("input", saveToLocalStorage);
-document.getElementById("damage-received").addEventListener("input", saveToLocalStorage);
-document.getElementById("special-counter").addEventListener("input", saveToLocalStorage);
-
-// Calculate HP based on input values
-document.getElementById("calculate-hp").addEventListener("click", () => {
+// Update HP and history with defense and block mechanics, ensuring HP does not drop below block value
+const updateHP = (value, isHeal) => {
     const hpInput = document.getElementById("hp");
     const defense = parseInt(document.getElementById("defense").value, 10) || 0;
     const block = parseInt(document.getElementById("block").value, 10) || 0;
-    const damage = parseInt(document.getElementById("damage-received").value, 10) || 0;
 
     let currentHP = parseInt(hpInput.value, 10) || 0;
-    const mitigatedDamage = Math.max(damage - defense, 0); // Apply defense first
-    const remainingDamage = Math.max(mitigatedDamage - block, 0); // Apply block
+    let effectiveValue = value;
 
-    // Ensure HP respects the block rule
-    if (currentHP < block) {
-        // If current HP is already less than the block, leave it unchanged
-        hpInput.value = currentHP;
-    } else {
-        // Otherwise, calculate HP and ensure it doesn't drop below the block value
-        const newHP = Math.max(currentHP - remainingDamage, block);
-        hpInput.value = newHP;
+    if (!isHeal) {
+        // Apply defense first, then block
+        effectiveValue = Math.max(value - defense, 0);
+        effectiveValue = Math.max(effectiveValue - block, 0);
     }
 
-    // Save updated HP to localStorage
-    saveToLocalStorage();
+    // Calculate new HP, ensuring it does not drop below block value
+    let newHP = isHeal ? currentHP + value : currentHP - effectiveValue;
+    if (!isHeal && newHP < block) {
+        newHP = block; // Ensure HP does not drop below block
+    }
+
+    // Update HP input
+    hpInput.value = Math.min(Math.max(newHP, 0), 200); // Clamp HP between 0 and 200
+
+    // Update history
+    const historyList = document.getElementById("history-list");
+    const li = document.createElement("li");
+    li.className = isHeal ? "heal" : "damage";
+    li.textContent = `${currentHP} → ${hpInput.value} (${isHeal ? "+" : "-"}${value})`;
+    historyList.prepend(li);
+};
+
+
+
+// Handle Heal and Damage buttons
+document.getElementById("heal-button").addEventListener("click", () => {
+    const value = parseInt(document.getElementById("value").value, 10);
+    if (value > 0) updateHP(value, true);
+    document.getElementById("value").value = 0;
 });
 
-// Update the season when rolling initiative
+document.getElementById("damage-button").addEventListener("click", () => {
+    const value = parseInt(document.getElementById("value").value, 10);
+    if (value > 0) updateHP(value, false);
+    document.getElementById("value").value = 0;
+});
+
+// Handle Initiative Roll
 document.getElementById("roll-initiative").addEventListener("click", () => {
     const roll = Math.floor(Math.random() * 20) + 1;
-    document.getElementById("initiative-result").textContent = `You rolled: ${roll}`;
+    const initiativeResult = document.getElementById("initiative-result");
 
-    const selectedClass = document.getElementById("class-select").value;
+    initiativeResult.textContent = `You rolled: ${roll}`;
+    initiativeResult.classList.add("rolling");
 
-    // Update seasons for Druid
-    if (selectedClass === "Druid") {
+    setTimeout(() => initiativeResult.classList.remove("rolling"), 500);
+
+    // Update turn counter
+    turnCounter++;
+    document.getElementById("turn-counter").textContent = `Turn: ${turnCounter}`;
+
+    // Update Seasons for Druid
+    if (document.getElementById("class-select").value === "Druid") {
         const seasonCounter = document.getElementById("season-counter");
         const currentSeason = seasonCounter.textContent;
         const nextSeason = seasons[(seasons.indexOf(currentSeason) + 1) % seasons.length];
         seasonCounter.textContent = nextSeason;
-        saveToLocalStorage(); // Save the updated season to localStorage
+        localStorage.setItem("season-counter", nextSeason);
     }
 });
 
@@ -135,13 +115,29 @@ document.getElementById("lock-class-toggle").addEventListener("click", () => {
     const classSelect = document.getElementById("class-select");
     const lockButton = document.getElementById("lock-class-toggle");
 
-    if (lockButton.textContent === "Lock") {
-        // Lock the class selection
+    if (lockButton.textContent === "Lock Selection") {
         classSelect.disabled = true;
-        lockButton.textContent = "Locked";
+        lockButton.textContent = "Locked Class";
     } else {
-        // Unlock the class selection
         classSelect.disabled = false;
-        lockButton.textContent = "Lock";
+        lockButton.textContent = "Lock Selection";
     }
 });
+
+// Save and Restore Data
+const saveToLocalStorage = () => {
+    localStorage.setItem("class-select", document.getElementById("class-select").value);
+    localStorage.setItem("hp", document.getElementById("hp").value);
+    localStorage.setItem("defense", document.getElementById("defense").value);
+    localStorage.setItem("block", document.getElementById("block").value);
+    localStorage.setItem("value", document.getElementById("value").value);
+    const specialCounterInput = document.getElementById("special-counter");
+    if (specialCounterInput.style.display === "block") {
+        localStorage.setItem("special-counter", specialCounterInput.value);
+    }
+};
+
+window.addEventListener("load", () => {
+    document.getElementById("class-select").dispatchEvent(new Event("change"));
+});
+

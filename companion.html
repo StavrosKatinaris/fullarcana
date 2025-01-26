@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎴 Full Arcana Companion</title>
+    <title>FA Companion</title>
     <link rel="stylesheet" href="companion.css">
 </head>
 <body>
     <div class="container">
-        <h1>🎴 Full Arcana Companion</h1>
+        <h1>FA Companion</h1>
         <form class="player-form">
             <div class="stat-group">
                 <label for="class-select">Class:</label>
@@ -30,38 +30,48 @@
                     <option value="Artificer">⚙️ Artificer</option>
                     <option value="Wizard">✨ Wizard</option>
                 </select>
-                <button type="button" id="lock-class-toggle">Lock</button>
+                <button type="button" id="lock-class-toggle">Lock Selection</button>
             </div>
-            
+
             <div class="stat-group">
                 <label for="defense">Defense:</label>
-                <input type="number" id="defense" value="0" min="0">
+                <input type="number" id="defense" value="0" min="0" max="200" step="1">
             </div>
             <div class="stat-group">
                 <label for="block">Block:</label>
-                <input type="number" id="block" value="0" min="0">
+                <input type="number" id="block" value="0" min="0" max="200" step="1">
             </div>
 
             <div class="stat-group">
                 <label for="hp">HP:</label>
-                <input type="number" id="hp" value="100" min="0">
+                <input type="number" id="hp" value="100" min="0" max="200" step="1">
             </div>
 
             <div class="stat-group special-counter-group" style="display: none;">
                 <label for="special-counter" id="special-counter-label"></label>
-                <input type="number" id="special-counter" value="0" min="0" style="display: none;">
+                <input type="number" id="special-counter" value="0" min="0" max="200" step="1" style="display: none;">
                 <div id="season-counter" style="display: none;">Spring</div>
             </div>
 
             <div class="stat-group">
-                <label for="damage-received">Damage Received:</label>
-                <input type="number" id="damage-received" min="0">
+                <label for="value">Value:</label>
+                <input type="number" id="value" value="0" min="0" max="200" step="1">
             </div>
 
-            <button type="button" id="calculate-hp">Calculate HP</button>
+            <div class="button-group">
+                <button type="button" id="heal-button">Heal</button>
+                <button type="button" id="damage-button">Take Damage</button>
+            </div>
+
             <button type="button" id="roll-initiative">Roll Initiative</button>
             <p id="initiative-result"></p>
+            <p id="turn-counter">Turn: 1</p>
         </form>
+
+        <div id="hp-history">
+            <h2>HP History</h2>
+            <ul id="history-list"></ul>
+        </div>
     </div>
     <script src="companion.js"></script>
 </body>
